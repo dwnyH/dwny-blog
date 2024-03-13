@@ -194,10 +194,10 @@ agent = initialize_agent(
     agent=AgentType.OPENAI_FUNCTIONS,
     handle_parsing_errors=True,
     tools=[
-        CompanyIncomeStatementTool(),
-        CompanyStockPerformanceTool(),
         StockMarketSymbolSearchTool(),
         CompanyOverviewTool(),
+        CompanyIncomeStatementTool(),
+        CompanyStockPerformanceTool(),
     ],
     agent_kwargs={
         "system_message": SystemMessage(
@@ -216,7 +216,7 @@ agent = initialize_agent(
 
 ```
 
-이렇게 `initialize_agent` 를 활용해 정답을 도출해 내는 툴을 만들어 넣어주면 - *ticker 찾는 툴, 주식 정보 api를 이용해 회사의 전반적인 정보/영업이익/주간보고서 등등을 가져오는 툴* - LLM이 알아서 툴들을 활용해 해당 주식을 사는게 좋은지 추론을 해준다.
+이렇게 `initialize_agent` 를 활용해 정답을 도출해 내는 툴을 만들어 넣어주면 - *ticker 찾는 툴(StockMarketSymbolSearchTool), 주식 정보 api를 이용해 회사의 전반적인 정보(CompanyOverviewTool)/손익계산서(CompanyIncomeStatementTool)/주간보고서(CompanyStockPerformanceTool) 등등을 가져오는 툴* - LLM이 알아서 툴들을 활용해 해당 주식을 사는게 좋은지 추론을 해준다.
 
 
 ## 어떻게 활용할 것인가
