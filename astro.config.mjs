@@ -15,5 +15,5 @@ export default defineConfig({
       theme: "nord",
       wrap: false
     }
-  }
+  },
 });
